@@ -10,10 +10,10 @@ term_list = ["mobile","app", "startup"] #Add or change this list and url will up
 header = "Company name, Category, Description, Homepage, Email Address, Phone #,"
 
 date = strftime("%d %b %Y %H:%M:%S", gmtime())
-filename ="data/DATA" # located in data folder
+filename ="data/DATA" # file located in data folder
 for i in term_list:
     filename+= i
-filename+= date
+filename+= date #File name depends on search terms and the current time
 info_file = open(filename + '.csv', 'w')
 
 def get_info(p = 1):
@@ -22,13 +22,8 @@ def get_info(p = 1):
     global writer
     global info_file
     info_file.write(header + "\n ")
-    query = "" #maybe just chnage it to be unicoded instead of this for loop
-    last = len(term_list) - 1
-    for i in term_list:
-        if i == term_list[last]:
-            query += i
-        else:
-            query += i + "%20"
+    query_sentence = ' '.join(term_list)
+    query = urllib.quote(query_sentence)
     max_range = p + 1 # I added 1 because in range function the max value is not counted
     for i in range (1, max_range):
         page = str(i)
