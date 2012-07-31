@@ -5,18 +5,24 @@ from time import gmtime, strftime
 import simplejson
 import sys
 
+#List of search terms. You can add or remove any number of terms and the script will return different results and will have a new filename
 term_list = ["mobile","app", "startup"] #Add or change this list and url will update
 
 header = "Company name, Category, Description, Homepage, Email Address, Phone #,"
 
+
+
 date = strftime("%d %b %Y %H:%M:%S", gmtime())
-filename ="data/DATA" # file located in data folder
+filename ="data/DATA" # file starts with 'DATA' and is located in data folder
 for i in term_list:
     filename+= i
 filename+= date #File name depends on search terms and the current time
 info_file = open(filename + '.csv', 'w')
+# If you would like to change the filename to just be 'results', replace the above code with:
+# info_file = open('results.csv', 'w')
 
-def get_info(p = 1):
+
+def get_info(p = 1): # p is number of pages (10 results per page)
     global term_list
     global header
     global writer
@@ -24,7 +30,7 @@ def get_info(p = 1):
     info_file.write(header + "\n ")
     query_sentence = ' '.join(term_list)
     query = urllib.quote(query_sentence)
-    max_range = p + 1 # I added 1 because in range function the max value is not counted
+    max_range = p + 1 # I added 1 because in range function the max value is not counted and the smalles number should be 1 because crunchbase does not have a page 0
     for i in range (1, max_range):
         page = str(i)
         search_url = 'http://api.crunchbase.com/v/1/search.js?query=' + query + '&page=' + page
