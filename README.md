@@ -1,4 +1,7 @@
-This is a python script I made for Appboy that pulls information from Crunch Base using their API and scrapes it to find companies of a specific type (in this case its mobile app startups). From there it goes back into the API to find more information on the company, like their phone number, email address, and company type. The information is then converted into a CSV file located in the data folder. The file's name depends on the search terms and the time the code was executed
+About
+==========================================
+This is a python script I made for Appboy that pulls information from Crunch Base using their API and scrapes it to find companies of a specific type (in this case its mobile app startups).
+From there it goes back into the API to find more information on the company, like their phone number, email address, and company type. The information is then converted into a CSV file located in the data folder. The file's name depends on the search terms and the time the code was executed
 
 Programming Language: Python
 
@@ -63,20 +66,20 @@ The for loop goes from results 0 to 10 (because each page has 10 results). It sh
 Catching Errors
 -----------------
 
-`try:
-...
-except
-                category = ""
-...
-except
-                description = "none"
-except KeyError:
-                homepage="none"
-...
-except KeyError:
-                email_address = "none"
-...
-except:
-                phone_number = ""`
+    try:
+    ...
+    except
+                    category = ""
+    ...
+    except
+                    description = "none"
+    except KeyError:
+                    homepage="none"
+    ...
+    except KeyError:
+                    email_address = "none"
+    ...
+    except:
+                    phone_number = ""
 
 Not every company provides all their information so this section tests to see if they have an email address or homepage etc and provides a value if it is missing
