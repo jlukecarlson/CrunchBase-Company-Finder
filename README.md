@@ -18,12 +18,12 @@ List of search terms. You can add or remove any number of terms and the script w
 File Name
 -------------
 
-`date = strftime("%d %b %Y %H:%M:%S", gmtime())
-filename ="data/DATA" # file located in data folder
-for i in term_list:
-    filename+= i
-filename+= date #File name depends on search terms and the current time
-info_file = open(filename + '.csv', 'w')`
+	date = strftime("%d %b %Y %H:%M:%S", gmtime())
+	filename ="data/DATA" # file located in data folder
+	for i in term_list:
+	    filename+= i
+	    filename+= date #File name depends on search terms and the current time
+	    info_file = open(filename + '.csv', 'w')
 
 Each file will be generated in a data folder and will start with the word 'DATA'. Next, python iterates through the array and adds each search term to the file name. Finally the date is appended to the end. Python then creates the file by 'opening' it as a .csv file with write permissions ('w'). If you would like to change the filename to just be 'results', for example, you could just remove this code and insert:
 
