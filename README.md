@@ -4,18 +4,19 @@ Programming Language: Python
 
 APIs Used: CrunchBase API
 
-==Important Sections==
+Important Sections
+==========================================
 
+Terms
+-------
 
-'''Terms'''
+`term_list = ["mobile","app", "startup"]`
 
- <syntaxhighlight lang="python" line="GESHI_FANCY_LINE_NUMBERS">
-term_list = ["mobile","app", "startup"]
- </syntaxhighlight>
 List of search terms. You can add or remove any number of terms and the script will return different results and will have a new filename
 
 
-'''File Name'''
+File Name
+-------------
 
 <syntaxhighlight lang="python" line="GESHI_FANCY_LINE_NUMBERS">
 date = strftime("%d %b %Y %H:%M:%S", gmtime())
@@ -31,7 +32,8 @@ info_file = open('results.csv', 'w')
  </syntaxhighlight>
 
 
-'''Pages'''
+Pages
+-------------
 
 The CrunchBase API returns 10 results per page.
 <syntaxhighlight lang="python" line="GESHI_FANCY_LINE_NUMBERS">
@@ -47,7 +49,8 @@ max_range = p + 1 # I added 1 because in range function the max value is not cou
 In this section, the script goes through a loop and each time gets the next page, returning 10 new results. Thus, get_info(5) tells the script to search 5 pages each with 10 results, returning 50 companies.
 
 
-'''Obtaining The Company's Info'''
+Obtaining The Company's Info
+-------------------------------
 
 The main search through CrunchBase only provides a small amount of information, so I had to do another lookup for their detailed info
 
@@ -64,7 +67,8 @@ The for loop goes from results 0 to 10 (because each page has 10 results). It sh
 
 
 
-'''Catching Errors'''
+Catching Errors
+-----------------
 
  <syntaxhighlight lang="python" line="GESHI_FANCY_LINE_NUMBERS">
 try:
