@@ -39,10 +39,10 @@ The CrunchBase API returns 10 results per page.
 `def get_info(p = 1)`
 
 This line means that the function get_info() will take 1 optional parameter: 'p' which stands for 'pages'. The default value is 1.
-     `max_range = p + 1 # I added 1 because in range function the max value is not counted
+     max_range = p + 1 # I added 1 because in range function the max value is not counted
          for i in range (1, max_range):
 	         page = str(i)
-		         search_url = 'http://api.crunchbase.com/v/1/search.js?query=' + query + '&page=' + page`
+		         search_url = 'http://api.crunchbase.com/v/1/search.js?query=' + query + '&page=' + page
 In this section, the script goes through a loop and each time gets the next page, returning 10 new results. Thus, get_info(5) tells the script to search 5 pages each with 10 results, returning 50 companies.
 
 
